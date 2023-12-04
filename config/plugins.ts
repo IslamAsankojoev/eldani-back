@@ -15,6 +15,23 @@ export default {
       // See `Config` section.
     },
   },
+  'transformer': {
+    enabled: true,
+    config: {
+      responseTransforms: {
+        removeAttributesKey: true,
+        removeDataKey: true,
+      },
+      requestTransforms : {
+        wrapBodyWithDataKey: true
+      },
+      hooks: {
+        preResponseTransform : (ctx) => {
+          console.log("preResponseTransform", ctx);
+        },
+      },
+    }
+  },
 
   // ...
 }
