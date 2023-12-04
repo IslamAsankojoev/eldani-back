@@ -15,10 +15,13 @@
     "@strapi/plugin-i18n": "4.15.5",
     "@strapi/plugin-users-permissions": "4.15.5",
     "@strapi/strapi": "4.15.5",
+    "custom-slug": "^2.1.1",
     "pg": "8.8.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "5.3.4",
+    "strapi-plugin-import-export-entries": "^1.22.1",
+    "strapi-plugin-schemas-to-ts": "^1.1.21",
     "styled-components": "5.3.3"
   },
   "author": {
