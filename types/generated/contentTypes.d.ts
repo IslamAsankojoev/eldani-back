@@ -478,6 +478,18 @@ export interface ApiProductProduct extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    properties: Attribute.Component<'list.character-item'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    text: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -615,6 +627,47 @@ export interface PluginUploadFolder extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::upload.folder',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginTelegramBotStrapiTelegram extends Schema.CollectionType {
+  collectionName: 'telegram';
+  info: {
+    singularName: 'telegram';
+    pluralName: 'telegram';
+    displayName: 'Telegram';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    chatId: Attribute.String & Attribute.Required & Attribute.Unique;
+    clientName: Attribute.String & Attribute.DefaultTo<''>;
+    lastMessage: Attribute.String & Attribute.DefaultTo<''>;
+    isSendInformation: Attribute.Boolean & Attribute.DefaultTo<false>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::telegram-bot-strapi.telegram',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::telegram-bot-strapi.telegram',
       'oneToOne',
       'admin::user'
     > &
@@ -831,6 +884,7 @@ declare module '@strapi/types' {
       'api::product.product': ApiProductProduct;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
+      'plugin::telegram-bot-strapi.telegram': PluginTelegramBotStrapiTelegram;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;

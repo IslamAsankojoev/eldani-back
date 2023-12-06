@@ -2,7 +2,10 @@
 
 import { Media } from '../../../../common/schemas-to-ts/Media';
 import { Category } from '../../../category/content-types/category/category';
+import { CharacterItem } from '../../../../components/list/interfaces/CharacterItem';
 import { Category_Plain } from '../../../category/content-types/category/category';
+import { CharacterItem_Plain } from '../../../../components/list/interfaces/CharacterItem';
+import { CharacterItem_NoRelations } from '../../../../components/list/interfaces/CharacterItem';
 import { AdminPanelRelationPropertyModification } from '../../../../common/schemas-to-ts/AdminPanelRelationPropertyModification';
 
 export interface Product {
@@ -14,6 +17,8 @@ export interface Product {
     price?: string;
     category?: { data: Category };
     slug?: any;
+    properties?: CharacterItem;
+    text?: string;
     locale: string;
     localizations?: { data: Product[] };
   };
@@ -26,6 +31,8 @@ export interface Product_Plain {
   price?: string;
   category?: Category_Plain;
   slug?: any;
+  properties?: CharacterItem_Plain;
+  text?: string;
   locale: string;
   localizations?: Product[];
 }
@@ -38,6 +45,8 @@ export interface Product_NoRelations {
   price?: string;
   category?: number;
   slug?: any;
+  properties?: CharacterItem_NoRelations;
+  text?: string;
   locale: string;
   localizations?: Product[];
 }
@@ -50,6 +59,8 @@ export interface Product_AdminPanelLifeCycle {
   price?: string;
   category?: AdminPanelRelationPropertyModification<Category_Plain>;
   slug?: any;
+  properties?: CharacterItem_Plain;
+  text?: string;
   locale: string;
   localizations?: Product[];
 }

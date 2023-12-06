@@ -1,37 +1,42 @@
 export default {
   // ...
-  'schemas-to-ts': {
+  "schemas-to-ts": {
     enabled: true,
     config: {
       acceptedNodeEnvs: ["development"],
       commonInterfacesFolderName: "schemas-to-ts",
       verboseLogs: false,
-      alwaysAddEnumSuffix: false
-    }
+      alwaysAddEnumSuffix: false,
+    },
   },
-  'import-export-entries': {
+  "import-export-entries": {
     enabled: true,
     config: {
       // See `Config` section.
     },
   },
-  'transformer': {
+  transformer: {
     enabled: true,
     config: {
       responseTransforms: {
         removeAttributesKey: true,
         removeDataKey: true,
       },
-      requestTransforms : {
-        wrapBodyWithDataKey: true
+      requestTransforms: {
+        wrapBodyWithDataKey: true,
       },
       hooks: {
-        preResponseTransform : (ctx) => {
-          console.log("preResponseTransform", ctx);
+        postResponseTransform: (ctx) => {
+          ctx.body = ctx.body.data;
         },
       },
-    }
+    },
   },
-
-  // ...
-}
+  'editorjs': {
+    enabled: true,
+    resolve: './src/plugins/strapi-plugin-react-editorjs'
+  },
+  'telegram-bot-strapi':{
+    enabled: true,
+  }
+};

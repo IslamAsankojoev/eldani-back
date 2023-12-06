@@ -73,6 +73,24 @@
         "pattern": "title"
       },
       "customField": "plugin::slug.slug"
+    },
+    "properties": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "list.character-item"
+    },
+    "text": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext"
     }
   }
 }

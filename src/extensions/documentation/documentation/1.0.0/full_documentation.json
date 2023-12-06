@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-12-04T15:40:32.978Z"
+    "x-generation-date": "2023-12-06T17:39:46.380Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -1315,6 +1315,32 @@
                         "slug": {
                           "type": "string"
                         },
+                        "properties": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "number"
+                            },
+                            "width": {
+                              "type": "string"
+                            },
+                            "height": {
+                              "type": "string"
+                            },
+                            "code": {
+                              "type": "string"
+                            },
+                            "country": {
+                              "type": "string"
+                            },
+                            "color": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "text": {
+                          "type": "string"
+                        },
                         "createdAt": {
                           "type": "string",
                           "format": "date-time"
@@ -1505,6 +1531,12 @@
           "slug": {
             "type": "string"
           },
+          "properties": {
+            "$ref": "#/components/schemas/ListCharacterItemComponent"
+          },
+          "text": {
+            "type": "string"
+          },
           "locale": {
             "type": "string"
           }
@@ -1552,6 +1584,12 @@
                 "example": "string or id"
               },
               "slug": {
+                "type": "string"
+              },
+              "properties": {
+                "$ref": "#/components/schemas/ListCharacterItemComponent"
+              },
+              "text": {
                 "type": "string"
               },
               "locale": {
@@ -2647,6 +2685,32 @@
                                     "slug": {
                                       "type": "string"
                                     },
+                                    "properties": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "number"
+                                        },
+                                        "width": {
+                                          "type": "string"
+                                        },
+                                        "height": {
+                                          "type": "string"
+                                        },
+                                        "code": {
+                                          "type": "string"
+                                        },
+                                        "country": {
+                                          "type": "string"
+                                        },
+                                        "color": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    },
+                                    "text": {
+                                      "type": "string"
+                                    },
                                     "createdAt": {
                                       "type": "string",
                                       "format": "date-time"
@@ -2779,6 +2843,12 @@
           "slug": {
             "type": "string"
           },
+          "properties": {
+            "$ref": "#/components/schemas/ListCharacterItemComponent"
+          },
+          "text": {
+            "type": "string"
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -2860,6 +2930,29 @@
           },
           "meta": {
             "type": "object"
+          }
+        }
+      },
+      "ListCharacterItemComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "width": {
+            "type": "string"
+          },
+          "height": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "color": {
+            "type": "string"
           }
         }
       },
