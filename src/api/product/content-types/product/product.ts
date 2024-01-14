@@ -2,65 +2,65 @@
 
 import { Media } from '../../../../common/schemas-to-ts/Media';
 import { Category } from '../../../category/content-types/category/category';
-import { CharacterItem } from '../../../../components/list/interfaces/CharacterItem';
+import { Property } from '../../../../components/item/interfaces/Property';
 import { Category_Plain } from '../../../category/content-types/category/category';
-import { CharacterItem_Plain } from '../../../../components/list/interfaces/CharacterItem';
-import { CharacterItem_NoRelations } from '../../../../components/list/interfaces/CharacterItem';
+import { Property_Plain } from '../../../../components/item/interfaces/Property';
+import { Property_NoRelations } from '../../../../components/item/interfaces/Property';
 import { AdminPanelRelationPropertyModification } from '../../../../common/schemas-to-ts/AdminPanelRelationPropertyModification';
 
 export interface Product {
   id: number;
   attributes: {
-    createdAt: Date;    updatedAt: Date;    publishedAt?: Date;    title?: string;
+    createdAt: Date;    updatedAt: Date;    publishedAt?: Date;    name?: string;
     description?: any;
     thumbnails?: { data: Media[] };
     price?: string;
     category?: { data: Category };
     slug?: any;
-    properties?: CharacterItem;
-    text?: string;
+    attribute: Property[];
+    comments?: any;
     locale: string;
     localizations?: { data: Product[] };
   };
 }
 export interface Product_Plain {
   id: number;
-  createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  title?: string;
+  createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  name?: string;
   description?: any;
   thumbnails?: Media[];
   price?: string;
   category?: Category_Plain;
   slug?: any;
-  properties?: CharacterItem_Plain;
-  text?: string;
+  attribute: Property_Plain[];
+  comments?: any;
   locale: string;
   localizations?: Product[];
 }
 
 export interface Product_NoRelations {
   id: number;
-  createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  title?: string;
+  createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  name?: string;
   description?: any;
   thumbnails?: number[];
   price?: string;
   category?: number;
   slug?: any;
-  properties?: CharacterItem_NoRelations;
-  text?: string;
+  attribute: Property_NoRelations[];
+  comments?: any;
   locale: string;
   localizations?: Product[];
 }
 
 export interface Product_AdminPanelLifeCycle {
   id: number;
-  createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  title?: string;
+  createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  name?: string;
   description?: any;
   thumbnails?: AdminPanelRelationPropertyModification<Media>[];
   price?: string;
   category?: AdminPanelRelationPropertyModification<Category_Plain>;
   slug?: any;
-  properties?: CharacterItem_Plain;
-  text?: string;
+  attribute: Property_Plain[];
+  comments?: any;
   locale: string;
   localizations?: Product[];
 }

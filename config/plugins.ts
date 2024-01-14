@@ -32,11 +32,8 @@ export default {
       },
     },
   },
-  'editorjs': {
+  editorjs: {
     enabled: true,
-    resolve: './src/plugins/strapi-plugin-react-editorjs'
+    resolve: "./src/plugins/strapi-plugin-react-editorjs",
   },
-  'telegram-bot-strapi':{
-    enabled: true,
-  }
 };

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-12-06T17:39:46.380Z"
+    "x-generation-date": "2024-01-13T15:50:13.148Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -25,7 +25,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:1337/api",
+      "url": "http://localhost:8000/api",
       "description": "Development server"
     }
   ],
@@ -120,6 +120,31 @@
               "example": "string or id"
             }
           },
+          "children": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
+              ],
+              "example": "string or id"
+            }
+          },
+          "parent": {
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "example": "string or id"
+          },
           "locale": {
             "type": "string"
           }
@@ -161,6 +186,31 @@
                   ],
                   "example": "string or id"
                 }
+              },
+              "children": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ],
+                  "example": "string or id"
+                }
+              },
+              "parent": {
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "example": "string or id"
               },
               "locale": {
                 "type": "string"
@@ -925,7 +975,7 @@
                     "attributes": {
                       "type": "object",
                       "properties": {
-                        "title": {
+                        "name": {
                           "type": "string"
                         },
                         "description": {},
@@ -1248,6 +1298,43 @@
                                         }
                                       }
                                     },
+                                    "children": {
+                                      "type": "object",
+                                      "properties": {
+                                        "data": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "object",
+                                            "properties": {
+                                              "id": {
+                                                "type": "number"
+                                              },
+                                              "attributes": {
+                                                "type": "object",
+                                                "properties": {}
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "parent": {
+                                      "type": "object",
+                                      "properties": {
+                                        "data": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "number"
+                                            },
+                                            "attributes": {
+                                              "type": "object",
+                                              "properties": {}
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
                                     "createdAt": {
                                       "type": "string",
                                       "format": "date-time"
@@ -1315,32 +1402,30 @@
                         "slug": {
                           "type": "string"
                         },
-                        "properties": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "number"
-                            },
-                            "width": {
-                              "type": "string"
-                            },
-                            "height": {
-                              "type": "string"
-                            },
-                            "code": {
-                              "type": "string"
-                            },
-                            "country": {
-                              "type": "string"
-                            },
-                            "color": {
-                              "type": "string"
+                        "attribute": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number"
+                              },
+                              "name": {
+                                "type": "string",
+                                "enum": [
+                                  "color",
+                                  "weight",
+                                  "height",
+                                  "size"
+                                ]
+                              },
+                              "value": {
+                                "type": "string"
+                              }
                             }
                           }
                         },
-                        "text": {
-                          "type": "string"
-                        },
+                        "comments": {},
                         "createdAt": {
                           "type": "string",
                           "format": "date-time"
@@ -1401,6 +1486,43 @@
                         }
                       }
                     }
+                  }
+                }
+              }
+            }
+          },
+          "children": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "attributes": {
+                      "type": "object",
+                      "properties": {}
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "parent": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {}
                   }
                 }
               }
@@ -1496,7 +1618,7 @@
         ],
         "type": "object",
         "properties": {
-          "title": {
+          "name": {
             "type": "string"
           },
           "description": {},
@@ -1531,12 +1653,13 @@
           "slug": {
             "type": "string"
           },
-          "properties": {
-            "$ref": "#/components/schemas/ListCharacterItemComponent"
+          "attribute": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ItemPropertyComponent"
+            }
           },
-          "text": {
-            "type": "string"
-          },
+          "comments": {},
           "locale": {
             "type": "string"
           }
@@ -1551,7 +1674,7 @@
           "data": {
             "type": "object",
             "properties": {
-              "title": {
+              "name": {
                 "type": "string"
               },
               "description": {},
@@ -1586,12 +1709,13 @@
               "slug": {
                 "type": "string"
               },
-              "properties": {
-                "$ref": "#/components/schemas/ListCharacterItemComponent"
+              "attribute": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ItemPropertyComponent"
+                }
               },
-              "text": {
-                "type": "string"
-              },
+              "comments": {},
               "locale": {
                 "type": "string"
               }
@@ -1716,7 +1840,7 @@
       "Product": {
         "type": "object",
         "properties": {
-          "title": {
+          "name": {
             "type": "string"
           },
           "description": {},
@@ -2516,7 +2640,7 @@
                                 "attributes": {
                                   "type": "object",
                                   "properties": {
-                                    "title": {
+                                    "name": {
                                       "type": "string"
                                     },
                                     "description": {},
@@ -2685,32 +2809,30 @@
                                     "slug": {
                                       "type": "string"
                                     },
-                                    "properties": {
-                                      "type": "object",
-                                      "properties": {
-                                        "id": {
-                                          "type": "number"
-                                        },
-                                        "width": {
-                                          "type": "string"
-                                        },
-                                        "height": {
-                                          "type": "string"
-                                        },
-                                        "code": {
-                                          "type": "string"
-                                        },
-                                        "country": {
-                                          "type": "string"
-                                        },
-                                        "color": {
-                                          "type": "string"
+                                    "attribute": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "number"
+                                          },
+                                          "name": {
+                                            "type": "string",
+                                            "enum": [
+                                              "color",
+                                              "weight",
+                                              "height",
+                                              "size"
+                                            ]
+                                          },
+                                          "value": {
+                                            "type": "string"
+                                          }
                                         }
                                       }
                                     },
-                                    "text": {
-                                      "type": "string"
-                                    },
+                                    "comments": {},
                                     "createdAt": {
                                       "type": "string",
                                       "format": "date-time"
@@ -2771,6 +2893,43 @@
                                     }
                                   }
                                 }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "children": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number"
+                                },
+                                "attributes": {
+                                  "type": "object",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "parent": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number"
+                              },
+                              "attributes": {
+                                "type": "object",
+                                "properties": {}
                               }
                             }
                           }
@@ -2843,12 +3002,13 @@
           "slug": {
             "type": "string"
           },
-          "properties": {
-            "$ref": "#/components/schemas/ListCharacterItemComponent"
+          "attribute": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ItemPropertyComponent"
+            }
           },
-          "text": {
-            "type": "string"
-          },
+          "comments": {},
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -2933,25 +3093,22 @@
           }
         }
       },
-      "ListCharacterItemComponent": {
+      "ItemPropertyComponent": {
         "type": "object",
         "properties": {
           "id": {
             "type": "number"
           },
-          "width": {
-            "type": "string"
+          "name": {
+            "type": "string",
+            "enum": [
+              "color",
+              "weight",
+              "height",
+              "size"
+            ]
           },
-          "height": {
-            "type": "string"
-          },
-          "code": {
-            "type": "string"
-          },
-          "country": {
-            "type": "string"
-          },
-          "color": {
+          "value": {
             "type": "string"
           }
         }

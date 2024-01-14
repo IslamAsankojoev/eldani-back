@@ -11,6 +11,8 @@ export interface Category {
     createdAt: Date;    updatedAt: Date;    publishedAt?: Date;    name?: string;
     preview?: { data: Media };
     products: { data: Product[] };
+    children: { data: Category[] };
+    parent?: { data: Category };
     locale: string;
     localizations?: { data: Category[] };
   };
@@ -20,6 +22,8 @@ export interface Category_Plain {
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  name?: string;
   preview?: Media;
   products: Product_Plain[];
+  children: Category_Plain[];
+  parent?: Category_Plain;
   locale: string;
   localizations?: Category[];
 }
@@ -29,6 +33,8 @@ export interface Category_NoRelations {
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  name?: string;
   preview?: number;
   products: number[];
+  children: number[];
+  parent?: number;
   locale: string;
   localizations?: Category[];
 }
@@ -38,6 +44,8 @@ export interface Category_AdminPanelLifeCycle {
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  name?: string;
   preview?: AdminPanelRelationPropertyModification<Media>;
   products: AdminPanelRelationPropertyModification<Product_Plain>;
+  children: AdminPanelRelationPropertyModification<Category_Plain>;
+  parent?: AdminPanelRelationPropertyModification<Category_Plain>;
   locale: string;
   localizations?: Category[];
 }

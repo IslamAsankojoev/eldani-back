@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "title": {
+    "name": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -74,23 +74,24 @@
       },
       "customField": "plugin::slug.slug"
     },
-    "properties": {
+    "attribute": {
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "list.character-item"
+      "component": "item.property"
     },
-    "text": {
+    "comments": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "richtext"
+      "type": "customField",
+      "customField": "plugin::comments.comments"
     }
   }
 }
