@@ -32,8 +32,4 @@ export default {
       },
     },
   },
-  editorjs: {
-    enabled: true,
-    resolve: "./src/plugins/strapi-plugin-react-editorjs",
-  },
 };

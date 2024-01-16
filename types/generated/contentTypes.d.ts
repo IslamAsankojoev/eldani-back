@@ -852,14 +852,6 @@ export interface PluginCommentManagerComment extends Schema.CollectionType {
     draftAndPublish: false;
     comment: '';
   };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
   attributes: {
     content: Attribute.Text;
     author: Attribute.Relation<
@@ -907,14 +899,6 @@ export interface PluginCommentManagerSubcomment extends Schema.CollectionType {
     draftAndPublish: false;
     comment: '';
   };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
   attributes: {
     content: Attribute.Text;
     author: Attribute.Relation<
@@ -956,14 +940,6 @@ export interface PluginCommentManagerContentId extends Schema.CollectionType {
   options: {
     draftAndPublish: false;
     comment: '';
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
   };
   attributes: {
     slug: Attribute.String & Attribute.Unique;
