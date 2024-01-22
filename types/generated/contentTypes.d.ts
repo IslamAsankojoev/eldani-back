@@ -476,18 +476,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'manyToOne',
       'api::category.category'
     >;
-    slug: Attribute.String &
-      Attribute.CustomField<
-        'plugin::slug.slug',
-        {
-          pattern: 'title';
-        }
-      > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     attribute: Attribute.Component<'item.property', true> &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -496,6 +484,19 @@ export interface ApiProductProduct extends Schema.CollectionType {
       }>;
     comments: Attribute.JSON &
       Attribute.CustomField<'plugin::comments.comments'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.String &
+      Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    viewed: Attribute.BigInteger &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
