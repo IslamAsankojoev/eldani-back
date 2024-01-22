@@ -18,6 +18,11 @@ export default {
   transformer: {
     enabled: true,
     config: {
+      plugins: {
+        ids: {
+          'slugify': true,
+        }
+      },
       responseTransforms: {
         removeAttributesKey: true,
         removeDataKey: true,
@@ -32,4 +37,16 @@ export default {
       },
     },
   },
+  slugify: {
+    enabled: true,
+    config: {
+      contentTypes: {
+        product: {
+          field: 'slug',
+          references: 'name',
+        },
+      },
+    },
+  },
+
 };
