@@ -476,18 +476,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'manyToOne',
       'api::category.category'
     >;
-    slug: Attribute.String &
-      Attribute.CustomField<
-        'plugin::slug.slug',
-        {
-          pattern: 'title';
-        }
-      > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     attribute: Attribute.Component<'item.property', true> &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -496,6 +484,19 @@ export interface ApiProductProduct extends Schema.CollectionType {
       }>;
     comments: Attribute.JSON &
       Attribute.CustomField<'plugin::comments.comments'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.String &
+      Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    viewed: Attribute.BigInteger &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -638,6 +639,45 @@ export interface PluginUploadFolder extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::upload.folder',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginSlugifySlug extends Schema.CollectionType {
+  collectionName: 'slugs';
+  info: {
+    singularName: 'slug';
+    pluralName: 'slugs';
+    displayName: 'slug';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    slug: Attribute.Text;
+    count: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::slugify.slug',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::slugify.slug',
       'oneToOne',
       'admin::user'
     > &
@@ -1094,6 +1134,7 @@ declare module '@strapi/types' {
       'api::product.product': ApiProductProduct;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
+      'plugin::slugify.slug': PluginSlugifySlug;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;

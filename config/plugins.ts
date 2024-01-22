@@ -15,6 +15,17 @@ export default {
       // See `Config` section.
     },
   },
+  slugify: {
+    enabled: true,
+    config: {
+      contentTypes: {
+        product: {
+          field: "slug",
+          references: "name",
+        },
+      },
+    },
+  },
   transformer: {
     enabled: true,
     config: {
@@ -28,6 +39,11 @@ export default {
       hooks: {
         postResponseTransform: (ctx) => {
           ctx.body = ctx.body.data;
+        },
+      },
+      plugins: {
+        ids: {
+          slugify: true,
         },
       },
     },

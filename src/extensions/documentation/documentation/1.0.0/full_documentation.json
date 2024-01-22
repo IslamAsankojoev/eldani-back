@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-01-16T05:29:20.385Z"
+    "x-generation-date": "2024-01-21T18:12:58.358Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -1399,9 +1399,6 @@
                             }
                           }
                         },
-                        "slug": {
-                          "type": "string"
-                        },
                         "attribute": {
                           "type": "array",
                           "items": {
@@ -1426,6 +1423,14 @@
                           }
                         },
                         "comments": {},
+                        "slug": {
+                          "type": "string"
+                        },
+                        "viewed": {
+                          "type": "string",
+                          "pattern": "^\\d*$",
+                          "example": "123456789"
+                        },
                         "createdAt": {
                           "type": "string",
                           "format": "date-time"
@@ -1650,9 +1655,6 @@
             ],
             "example": "string or id"
           },
-          "slug": {
-            "type": "string"
-          },
           "attribute": {
             "type": "array",
             "items": {
@@ -1660,6 +1662,14 @@
             }
           },
           "comments": {},
+          "slug": {
+            "type": "string"
+          },
+          "viewed": {
+            "type": "string",
+            "pattern": "^\\d*$",
+            "example": "123456789"
+          },
           "locale": {
             "type": "string"
           }
@@ -1706,9 +1716,6 @@
                 ],
                 "example": "string or id"
               },
-              "slug": {
-                "type": "string"
-              },
               "attribute": {
                 "type": "array",
                 "items": {
@@ -1716,6 +1723,14 @@
                 }
               },
               "comments": {},
+              "slug": {
+                "type": "string"
+              },
+              "viewed": {
+                "type": "string",
+                "pattern": "^\\d*$",
+                "example": "123456789"
+              },
               "locale": {
                 "type": "string"
               }
@@ -2806,9 +2821,6 @@
                                         }
                                       }
                                     },
-                                    "slug": {
-                                      "type": "string"
-                                    },
                                     "attribute": {
                                       "type": "array",
                                       "items": {
@@ -2833,6 +2845,14 @@
                                       }
                                     },
                                     "comments": {},
+                                    "slug": {
+                                      "type": "string"
+                                    },
+                                    "viewed": {
+                                      "type": "string",
+                                      "pattern": "^\\d*$",
+                                      "example": "123456789"
+                                    },
                                     "createdAt": {
                                       "type": "string",
                                       "format": "date-time"
@@ -2999,9 +3019,6 @@
               }
             }
           },
-          "slug": {
-            "type": "string"
-          },
           "attribute": {
             "type": "array",
             "items": {
@@ -3009,6 +3026,14 @@
             }
           },
           "comments": {},
+          "slug": {
+            "type": "string"
+          },
+          "viewed": {
+            "type": "string",
+            "pattern": "^\\d*$",
+            "example": "123456789"
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"

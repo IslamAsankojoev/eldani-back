@@ -16,9 +16,10 @@ export interface Product {
     thumbnails?: { data: Media[] };
     price?: string;
     category?: { data: Category };
-    slug?: any;
     attribute: Property[];
     comments?: any;
+    slug?: string;
+    viewed?: number;
     locale: string;
     localizations?: { data: Product[] };
   };
@@ -30,9 +31,10 @@ export interface Product_Plain {
   thumbnails?: Media[];
   price?: string;
   category?: Category_Plain;
-  slug?: any;
   attribute: Property_Plain[];
   comments?: any;
+  slug?: string;
+  viewed?: number;
   locale: string;
   localizations?: Product[];
 }
@@ -44,9 +46,10 @@ export interface Product_NoRelations {
   thumbnails?: number[];
   price?: string;
   category?: number;
-  slug?: any;
   attribute: Property_NoRelations[];
   comments?: any;
+  slug?: string;
+  viewed?: number;
   locale: string;
   localizations?: Product[];
 }
@@ -58,9 +61,10 @@ export interface Product_AdminPanelLifeCycle {
   thumbnails?: AdminPanelRelationPropertyModification<Media>[];
   price?: string;
   category?: AdminPanelRelationPropertyModification<Category_Plain>;
-  slug?: any;
   attribute: Property_Plain[];
   comments?: any;
+  slug?: string;
+  viewed?: number;
   locale: string;
   localizations?: Product[];
 }
