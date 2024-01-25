@@ -46,23 +46,7 @@ export default {
           ctx.body = ctx.body.data;
         },
       },
-      plugins: {
-        ids: {
-          slugify: true,
-        },
-      },
-    },
-  },
-  slugify: {
-    enabled: true,
-    config: {
-      contentTypes: {
-        product: {
-          field: 'slug',
-          references: 'name',
-        },
-      },
-    },
-  },
 
+    },
+  },
 };
