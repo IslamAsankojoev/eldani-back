@@ -7,4 +7,5 @@ export default ({ env }) => ({
 	webhooks: {
 		populateRelations: env.bool("WEBHOOKS_POPULATE_RELATIONS", false),
 	},
+	url: "https://fc07-77-235-23-216.ngrok-free.app",
 });
