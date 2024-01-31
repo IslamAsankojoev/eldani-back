@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-01-30T04:49:07.497Z"
+    "x-generation-date": "2024-01-31T12:28:58.383Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -25,7 +25,7 @@
   },
   "servers": [
     {
-      "url": "https://fc07-77-235-23-216.ngrok-free.app/api",
+      "url": "https://c2ef-77-235-23-216.ngrok-free.app/api",
       "description": "Development server"
     }
   ],

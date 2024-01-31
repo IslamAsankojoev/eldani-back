@@ -9,6 +9,7 @@ export default [
   "strapi::session",
   "strapi::favicon",
   "strapi::public",
+  "global::TokenPlacer",
   {
     name: "strapi::security",
     config: {
@@ -25,7 +26,10 @@ export default [
       origin: "*",
       methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
       headers: ["Content-Type", "Authorization", "Origin", "Accept"],
-      keepHeaderOnError: true,
+      credentials: true,
+      expose: ["WWW-Authenticate", "Server-Authorization"],
+      maxAge: 3600,
+      optionsSuccessStatus: 204,
     },
   },
 ];

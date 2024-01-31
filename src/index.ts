@@ -26,14 +26,12 @@ export default {
           .request();
 
         const { body } = res;
+        console.log(body)
 
         return {
           email: body.email,
-          firstname: body.given_name,
-          lastname: body.family_name,
-          picture: body.picture,
+          avatar_google: body.picture,
           provider: "google",
-          username: body.name,
         };
       });
   },
