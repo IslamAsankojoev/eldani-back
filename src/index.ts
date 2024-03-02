@@ -26,7 +26,6 @@ export default {
           .request();
 
         const { body } = res;
-        console.log(body)
 
         return {
           email: body.email,

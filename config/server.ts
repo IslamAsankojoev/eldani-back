@@ -7,5 +7,5 @@ export default ({ env }) => ({
   webhooks: {
     populateRelations: env.bool("WEBHOOKS_POPULATE_RELATIONS", false),
   },
-  // url: "https://2268-217-29-29-158.ngrok-free.app",
+  url: "https://eldani-3333ab7cc275.herokuapp.com",
 });
