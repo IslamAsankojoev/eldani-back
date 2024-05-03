@@ -7,5 +7,4 @@ export default ({ env }) => ({
   webhooks: {
     populateRelations: env.bool("WEBHOOKS_POPULATE_RELATIONS", false),
   },
-  url: "https://eldani-3333ab7cc275.herokuapp.com",
 });
