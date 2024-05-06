@@ -20,6 +20,7 @@ export interface Product {
     comments?: any;
     slug?: string;
     viewed?: number;
+    file?: { data: Media };
     locale: string;
     localizations?: { data: Product[] };
   };
@@ -35,6 +36,7 @@ export interface Product_Plain {
   comments?: any;
   slug?: string;
   viewed?: number;
+  file?: Media;
   locale: string;
   localizations?: Product[];
 }
@@ -50,6 +52,7 @@ export interface Product_NoRelations {
   comments?: any;
   slug?: string;
   viewed?: number;
+  file?: number;
   locale: string;
   localizations?: Product[];
 }
@@ -65,6 +68,7 @@ export interface Product_AdminPanelLifeCycle {
   comments?: any;
   slug?: string;
   viewed?: number;
+  file?: AdminPanelRelationPropertyModification<Media>;
   locale: string;
   localizations?: Product[];
 }
