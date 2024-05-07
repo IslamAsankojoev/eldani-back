@@ -6,7 +6,16 @@ export default [
   "strapi::logger",
   "strapi::query",
   "strapi::body",
-  "strapi::session",
+  {
+    name: 'strapi::session',
+    config: {
+      key: 'eldani.session',
+      rolling: true,
+      renew: true,
+      httpOnly: true,
+      maxAge: 86400000
+    },
+  },
   "strapi::favicon",
   "strapi::public",
   "global::TokenPlacer",
