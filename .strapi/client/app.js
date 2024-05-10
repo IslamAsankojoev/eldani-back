@@ -13,7 +13,10 @@ import comments from "strapi-plugin-comments/strapi-admin";
 import importExportEntries from "strapi-plugin-import-export-entries/strapi-admin";
 import { renderAdmin } from "@strapi/strapi/admin";
 
+import customisations from "../../src/admin/app.tsx";
+
 renderAdmin(document.getElementById("strapi"), {
+  customisations,
   plugins: {
     "strapi-cloud": strapiCloud,
     "color-picker": colorPicker,
