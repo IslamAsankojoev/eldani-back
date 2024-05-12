@@ -62,16 +62,6 @@
       "target": "api::category.category",
       "inversedBy": "products"
     },
-    "attribute": {
-      "type": "component",
-      "repeatable": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "item.property"
-    },
     "comments": {
       "pluginOptions": {
         "i18n": {
@@ -99,16 +89,27 @@
       "type": "biginteger"
     },
     "file": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "files"
       ],
-      "type": "media",
-      "multiple": false,
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       }
+    },
+    "sizes": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "property.size"
     }
   }
 }

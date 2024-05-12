@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_property_sizes",
+  "info": {
+    "displayName": "size",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string"
+    },
+    "file": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
+    }
+  }
+}

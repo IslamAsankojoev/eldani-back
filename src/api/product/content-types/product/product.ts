@@ -2,10 +2,10 @@
 
 import { Media } from '../../../../common/schemas-to-ts/Media';
 import { Category } from '../../../category/content-types/category/category';
-import { Property } from '../../../../components/item/interfaces/Property';
+import { Size } from '../../../../components/property/interfaces/Size';
 import { Category_Plain } from '../../../category/content-types/category/category';
-import { Property_Plain } from '../../../../components/item/interfaces/Property';
-import { Property_NoRelations } from '../../../../components/item/interfaces/Property';
+import { Size_Plain } from '../../../../components/property/interfaces/Size';
+import { Size_NoRelations } from '../../../../components/property/interfaces/Size';
 import { AdminPanelRelationPropertyModification } from '../../../../common/schemas-to-ts/AdminPanelRelationPropertyModification';
 
 export interface Product {
@@ -16,11 +16,11 @@ export interface Product {
     thumbnails?: { data: Media[] };
     price?: string;
     category?: { data: Category };
-    attribute: Property[];
     comments?: any;
     slug?: string;
     viewed?: number;
     file?: { data: Media };
+    sizes: Size[];
     locale: string;
     localizations?: { data: Product[] };
   };
@@ -32,11 +32,11 @@ export interface Product_Plain {
   thumbnails?: Media[];
   price?: string;
   category?: Category_Plain;
-  attribute: Property_Plain[];
   comments?: any;
   slug?: string;
   viewed?: number;
   file?: Media;
+  sizes: Size_Plain[];
   locale: string;
   localizations?: Product[];
 }
@@ -48,11 +48,11 @@ export interface Product_NoRelations {
   thumbnails?: number[];
   price?: string;
   category?: number;
-  attribute: Property_NoRelations[];
   comments?: any;
   slug?: string;
   viewed?: number;
   file?: number;
+  sizes: Size_NoRelations[];
   locale: string;
   localizations?: Product[];
 }
@@ -64,11 +64,11 @@ export interface Product_AdminPanelLifeCycle {
   thumbnails?: AdminPanelRelationPropertyModification<Media>[];
   price?: string;
   category?: AdminPanelRelationPropertyModification<Category_Plain>;
-  attribute: Property_Plain[];
   comments?: any;
   slug?: string;
   viewed?: number;
   file?: AdminPanelRelationPropertyModification<Media>;
+  sizes: Size_Plain[];
   locale: string;
   localizations?: Product[];
 }
