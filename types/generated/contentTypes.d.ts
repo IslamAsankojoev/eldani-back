@@ -476,18 +476,6 @@ export interface ApiPagePage extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    slug: Attribute.String &
-      Attribute.CustomField<
-        'plugin::slug.slug',
-        {
-          pattern: 'title';
-        }
-      > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     content: Attribute.Blocks &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -505,6 +493,13 @@ export interface ApiPagePage extends Schema.CollectionType {
       'oneToOne',
       'api::page-category.page-category'
     >;
+    slug: Attribute.String &
+      Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -9,10 +9,10 @@ export interface Page {
   id: number;
   attributes: {
     createdAt: Date;    updatedAt: Date;    publishedAt?: Date;    title?: string;
-    slug?: any;
     content?: any;
     thumbnail?: { data: Media };
     page_category?: { data: PageCategory };
+    slug?: string;
     locale: string;
     localizations?: { data: Page[] };
   };
@@ -20,10 +20,10 @@ export interface Page {
 export interface Page_Plain {
   id: number;
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  title?: string;
-  slug?: any;
   content?: any;
   thumbnail?: Media;
   page_category?: PageCategory_Plain;
+  slug?: string;
   locale: string;
   localizations?: Page[];
 }
@@ -31,10 +31,10 @@ export interface Page_Plain {
 export interface Page_NoRelations {
   id: number;
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  title?: string;
-  slug?: any;
   content?: any;
   thumbnail?: number;
   page_category?: number;
+  slug?: string;
   locale: string;
   localizations?: Page[];
 }
@@ -42,10 +42,10 @@ export interface Page_NoRelations {
 export interface Page_AdminPanelLifeCycle {
   id: number;
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  title?: string;
-  slug?: any;
   content?: any;
   thumbnail?: AdminPanelRelationPropertyModification<Media>;
   page_category?: AdminPanelRelationPropertyModification<PageCategory_Plain>;
+  slug?: string;
   locale: string;
   localizations?: Page[];
 }

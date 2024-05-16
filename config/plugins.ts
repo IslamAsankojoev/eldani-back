@@ -23,6 +23,10 @@ export default {
           field: "slug",
           references: "name",
         },
+        page: {
+          field: "slug",
+          references: "title",
+        },
       },
     },
   },
