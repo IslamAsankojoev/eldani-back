@@ -78,6 +78,12 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "orders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order.order",
+      "mappedBy": "user"
     }
   }
 }
