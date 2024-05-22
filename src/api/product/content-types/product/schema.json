@@ -71,15 +71,6 @@
       "type": "customField",
       "customField": "plugin::comments.comments"
     },
-    "slug": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
-      "unique": true
-    },
     "viewed": {
       "pluginOptions": {
         "i18n": {
@@ -110,6 +101,15 @@
         }
       },
       "component": "property.size"
+    },
+    "slug": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "uid",
+      "targetField": "name"
     }
   }
 }

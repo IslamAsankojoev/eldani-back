@@ -17,10 +17,10 @@ export interface Product {
     price?: string;
     category?: { data: Category };
     comments?: any;
-    slug?: string;
     viewed?: number;
     file?: { data: Media };
     sizes: Size[];
+    slug?: string;
     locale: string;
     localizations?: { data: Product[] };
   };
@@ -33,10 +33,10 @@ export interface Product_Plain {
   price?: string;
   category?: Category_Plain;
   comments?: any;
-  slug?: string;
   viewed?: number;
   file?: Media;
   sizes: Size_Plain[];
+  slug?: string;
   locale: string;
   localizations?: Product[];
 }
@@ -49,10 +49,10 @@ export interface Product_NoRelations {
   price?: string;
   category?: number;
   comments?: any;
-  slug?: string;
   viewed?: number;
   file?: number;
   sizes: Size_NoRelations[];
+  slug?: string;
   locale: string;
   localizations?: Product[];
 }
@@ -65,10 +65,10 @@ export interface Product_AdminPanelLifeCycle {
   price?: string;
   category?: AdminPanelRelationPropertyModification<Category_Plain>;
   comments?: any;
-  slug?: string;
   viewed?: number;
   file?: AdminPanelRelationPropertyModification<Media>;
   sizes: Size_Plain[];
+  slug?: string;
   locale: string;
   localizations?: Product[];
 }

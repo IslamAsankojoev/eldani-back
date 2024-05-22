@@ -16,38 +16,38 @@ export interface Order {
   attributes: {
     createdAt: Date;    updatedAt: Date;    publishedAt?: Date;    note?: string;
     status?: Status;
-    uid?: string;
     products?: any;
     file?: { data: Media };
     user?: { data: User };
+    uuid?: any;
   };
 }
 export interface Order_Plain {
   id: number;
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  note?: string;
   status?: Status;
-  uid?: string;
   products?: any;
   file?: Media;
   user?: User_Plain;
+  uuid?: any;
 }
 
 export interface Order_NoRelations {
   id: number;
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  note?: string;
   status?: Status;
-  uid?: string;
   products?: any;
   file?: number;
   user?: number;
+  uuid?: any;
 }
 
 export interface Order_AdminPanelLifeCycle {
   id: number;
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  note?: string;
   status?: Status;
-  uid?: string;
   products?: any;
   file?: AdminPanelRelationPropertyModification<Media>;
   user?: AdminPanelRelationPropertyModification<User_Plain>;
+  uuid?: any;
 }

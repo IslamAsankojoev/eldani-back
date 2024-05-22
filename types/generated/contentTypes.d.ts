@@ -723,131 +723,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface PluginCommentManagerComment extends Schema.CollectionType {
-  collectionName: 'comments';
-  info: {
-    singularName: 'comment';
-    pluralName: 'comments';
-    displayName: 'Comment';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-    comment: '';
-  };
-  attributes: {
-    content: Attribute.Text;
-    author: Attribute.Relation<
-      'plugin::comment-manager.comment',
-      'oneToOne',
-      'plugin::users-permissions.user'
-    >;
-    subcomments: Attribute.Relation<
-      'plugin::comment-manager.comment',
-      'oneToMany',
-      'plugin::comment-manager.subcomment'
-    >;
-    from_admin: Attribute.Boolean;
-    related_to: Attribute.Relation<
-      'plugin::comment-manager.comment',
-      'manyToOne',
-      'plugin::comment-manager.content-id'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::comment-manager.comment',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::comment-manager.comment',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface PluginCommentManagerSubcomment extends Schema.CollectionType {
-  collectionName: 'subcomments';
-  info: {
-    singularName: 'subcomment';
-    pluralName: 'subcomments';
-    displayName: 'Subcomment';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-    comment: '';
-  };
-  attributes: {
-    content: Attribute.Text;
-    author: Attribute.Relation<
-      'plugin::comment-manager.subcomment',
-      'oneToOne',
-      'plugin::users-permissions.user'
-    >;
-    parent_comment: Attribute.Relation<
-      'plugin::comment-manager.subcomment',
-      'manyToOne',
-      'plugin::comment-manager.comment'
-    >;
-    from_admin: Attribute.Boolean;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::comment-manager.subcomment',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::comment-manager.subcomment',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface PluginCommentManagerContentId extends Schema.CollectionType {
-  collectionName: 'content_ids';
-  info: {
-    singularName: 'content-id';
-    pluralName: 'content-ids';
-    displayName: 'ContentID';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-    comment: '';
-  };
-  attributes: {
-    slug: Attribute.String & Attribute.Unique;
-    comments: Attribute.Relation<
-      'plugin::comment-manager.content-id',
-      'oneToMany',
-      'plugin::comment-manager.comment'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::comment-manager.content-id',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::comment-manager.content-id',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginCommentsComment extends Schema.CollectionType {
   collectionName: 'comments_comment';
   info: {
@@ -1070,7 +945,6 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     status: Attribute.Enumeration<
       ['pending_payment', 'payment_error', 'paid', 'cancelled']
     >;
-    uid: Attribute.UID<'api::order.order', 'note'>;
     products: Attribute.JSON;
     file: Attribute.Media;
     user: Attribute.Relation<
@@ -1078,6 +952,21 @@ export interface ApiOrderOrder extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.user'
     >;
+    uuid: Attribute.UID<
+      undefined,
+      undefined,
+      {
+        'uuid-format': '^[A-Z]{2}\\d{5}$';
+        'disable-regenerate': true;
+      }
+    > &
+      Attribute.CustomField<
+        'plugin::strapi-advanced-uuid.uuid',
+        {
+          'uuid-format': '^[A-Z]{2}\\d{5}$';
+          'disable-regenerate': true;
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1259,13 +1148,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    slug: Attribute.String &
-      Attribute.Unique &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     viewed: Attribute.BigInteger &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1279,6 +1161,12 @@ export interface ApiProductProduct extends Schema.CollectionType {
         };
       }>;
     sizes: Attribute.Component<'property.size', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.UID<'api::product.product', 'name'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1325,9 +1213,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'plugin::comment-manager.comment': PluginCommentManagerComment;
-      'plugin::comment-manager.subcomment': PluginCommentManagerSubcomment;
-      'plugin::comment-manager.content-id': PluginCommentManagerContentId;
       'plugin::comments.comment': PluginCommentsComment;
       'plugin::comments.comment-report': PluginCommentsCommentReport;
       'api::category.category': ApiCategoryCategory;
