@@ -1155,12 +1155,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    file: Attribute.Media &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
     sizes: Attribute.Component<'property.size', true> &
       Attribute.SetPluginOptions<{
         i18n: {

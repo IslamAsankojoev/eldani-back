@@ -18,7 +18,6 @@ export interface Product {
     category?: { data: Category };
     comments?: any;
     viewed?: number;
-    file?: { data: Media };
     sizes: Size[];
     slug?: string;
     locale: string;
@@ -34,7 +33,6 @@ export interface Product_Plain {
   category?: Category_Plain;
   comments?: any;
   viewed?: number;
-  file?: Media;
   sizes: Size_Plain[];
   slug?: string;
   locale: string;
@@ -50,7 +48,6 @@ export interface Product_NoRelations {
   category?: number;
   comments?: any;
   viewed?: number;
-  file?: number;
   sizes: Size_NoRelations[];
   slug?: string;
   locale: string;
@@ -66,7 +63,6 @@ export interface Product_AdminPanelLifeCycle {
   category?: AdminPanelRelationPropertyModification<Category_Plain>;
   comments?: any;
   viewed?: number;
-  file?: AdminPanelRelationPropertyModification<Media>;
   sizes: Size_Plain[];
   slug?: string;
   locale: string;
