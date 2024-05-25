@@ -944,7 +944,8 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     note: Attribute.String;
     status: Attribute.Enumeration<
       ['pending_payment', 'payment_error', 'paid', 'cancelled']
-    >;
+    > &
+      Attribute.DefaultTo<'pending_payment'>;
     products: Attribute.JSON;
     file: Attribute.Media;
     user: Attribute.Relation<

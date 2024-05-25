@@ -22,7 +22,8 @@
         "payment_error",
         "paid",
         "cancelled"
-      ]
+      ],
+      "default": "pending_payment"
     },
     "products": {
       "type": "json"
