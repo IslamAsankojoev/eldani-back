@@ -13,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "note": {
-      "type": "string"
+      "type": "string",
+      "default": "Ждем оплату, перевод доступен через Visa, MBank, Optima, О!Деньги"
     },
     "status": {
       "type": "enumeration",
@@ -28,17 +29,6 @@
     "products": {
       "type": "json"
     },
-    "file": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "user": {
       "type": "relation",
       "relation": "manyToOne",
@@ -52,6 +42,9 @@
         "disable-regenerate": true
       },
       "customField": "plugin::strapi-advanced-uuid.uuid"
+    },
+    "price": {
+      "type": "string"
     }
   }
 }

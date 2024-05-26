@@ -941,13 +941,13 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    note: Attribute.String;
+    note: Attribute.String &
+      Attribute.DefaultTo<'\u0416\u0434\u0435\u043C \u043E\u043F\u043B\u0430\u0442\u0443, \u043F\u0435\u0440\u0435\u0432\u043E\u0434 \u0434\u043E\u0441\u0442\u0443\u043F\u0435\u043D \u0447\u0435\u0440\u0435\u0437 Visa, MBank, Optima, \u041E!\u0414\u0435\u043D\u044C\u0433\u0438'>;
     status: Attribute.Enumeration<
       ['pending_payment', 'payment_error', 'paid', 'cancelled']
     > &
       Attribute.DefaultTo<'pending_payment'>;
     products: Attribute.JSON;
-    file: Attribute.Media;
     user: Attribute.Relation<
       'api::order.order',
       'manyToOne',
@@ -968,6 +968,7 @@ export interface ApiOrderOrder extends Schema.CollectionType {
           'disable-regenerate': true;
         }
       >;
+    price: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
